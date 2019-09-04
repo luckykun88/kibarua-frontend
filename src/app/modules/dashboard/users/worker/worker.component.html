@@ -1,0 +1,109 @@
+<div class="container-fluid">
+  <!-- Page Heading -->
+  <h1 class="h3 mb-2 text-gray-800">Worker Table</h1>
+  <p class="mb-4">
+    DataTables is a third party plugin that is used to generate the demo table
+    below. For more information about DataTables, please visit the
+    <a target="_blank" href="https://datatables.net"
+      >official DataTables documentation</a
+    >.
+  </p>
+
+  <!-- DataTales Example -->
+  <div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table
+          class="table table-bordered"
+          id="dataTable"
+          width="100%"
+          cellspacing="0"
+        >
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Role</th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tfoot>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Role</th>
+              <th></th>
+              <th></th>
+            </tr>
+          </tfoot>
+          <tbody>
+            <tr *ngFor="let worker of worker$ | async">
+              <td>{{ worker.fullName | titlecase }}</td>
+              <td>{{ worker.email }}</td>
+              <td>{{ worker.role | titlecase }}</td>
+              <td class="text-center">
+                <button
+                  class="btn btn-warning"
+                  data-toggle="modal"
+                  data-target="#editWorkerModal"
+                >
+                  <i class="fa fa-edit"></i> Edit
+                </button>
+              </td>
+              <td class="text-center">
+                <button class="btn btn-danger">
+                  <i class="fa fa-trash"></i> Delete
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /.container-fluid -->
+
+<!-- Edit Modal-->
+<div
+  class="modal fade"
+  id="editWorkerModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="editWorkerModal"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editWorkerModal">Edit worker</h5>
+        <button
+          class="close"
+          id="closeMod"
+          type="button"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="">
+          <div class="form-group">
+            <label for="">Name</label>
+            <input type="text" class="form-control" />
+          </div>
+          <div class="form-group">
+            <button class="btn btn-primary float-right">
+              Edit
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
