@@ -1,0 +1,148 @@
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Job Type Table</h1>
+    <p class="mb-4">
+      DataTables is a third party plugin that is used to generate the demo table
+      below. For more information about DataTables, please visit the
+      <a target="_blank" href="https://datatables.net"
+        >official DataTables documentation</a
+      >.
+    </p>
+  
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+      <div class="card-header py-3">
+        <!-- <h6 class="font-weight-bold text-primary">DataTables Example</h6> -->
+        <button class="btn-primary btn float-left" data-toggle="modal" data-target="#jobTypeModal">
+            Add Job Type
+        </button>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table
+            class="table table-bordered"
+            id="dataTable"
+            width="100%"
+            cellspacing="0"
+          >
+            <thead>
+              <tr>
+                <th>Job title</th>
+              <th>Small</th>
+              <th>Medium</th>
+              <th>High</th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tfoot>
+              <tr>
+                <th>Job title</th>
+              <th>Small</th>
+              <th>Medium</th>
+              <th>High</th>
+                <th></th>
+                <th></th>
+              </tr>
+            </tfoot>
+            <tbody>
+                <tr *ngFor="let job of job$ | async">
+                    <td>
+                      {{ job.name}} 
+                    </td>
+                    <td>
+                      {{ job.small }}
+                    </td>
+                    <td>
+                        {{ job.medium }}
+                    </td>
+                    <td>
+                      {{ job.high }}
+                    </td>
+                    <td>
+                      <button class="btn btn-warning" (click)="open(edit, {{ job }})">
+                          <i class="fas fa-edit"></i> Edit
+                      </button>
+                    </td>
+                    <td>
+                      <button class="btn btn-danger">
+                          <i class="fas fa-trash-alt"></i> Delete
+                      </button>
+                    </td>
+                  </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /.container-fluid -->
+  
+<!-- Job Type Modal-->
+<div
+  class="modal fade"
+  id="jobTypeModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="jobTypeModal"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">
+          Add a new job type for workers to choose
+        </h5>
+        <button
+          class="close"
+          id="closeJobModal"
+          type="button"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="jobForm" (ngSubmit)="onSubmit(jobForm)">
+          <div class="form-group">
+            <label for="jobtype">Job Type</label>
+            <input type="text" class="form-control" formControlName="name" />
+          </div>
+          <div class="form-group">
+            <label for="">Small amount</label>
+            <input type="text" class="form-control" formControlName="small" />
+          </div>
+          <div class="form-group">
+            <label for="">Medium amount</label>
+            <input type="text" class="form-control" formControlName="medium" />
+          </div>
+          <div class="form-group">
+            <label for="">Large Amount</label>
+            <input type="text" class="form-control" formControlName="high" />
+          </div>
+          <div class="form-group float-right">
+            <button type="submit" class="btn btn-success">Add Job Type</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--Job Edit Modal-->
+<ng-template #edit let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Edit Job Type</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>
+        This is a test
+    </p>
+  </div>
+</ng-template>
+
