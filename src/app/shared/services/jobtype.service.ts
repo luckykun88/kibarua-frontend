@@ -23,4 +23,8 @@ export class JobtypeService {
   getJobTypes(){
     return this.db.list(this.basePath).valueChanges();
   }
+
+  getSpecificJobType(job) {
+    this.db.object(this.basePath);
+  }
 }

@@ -48,7 +48,7 @@
             <tbody>
                 <tr *ngFor="let job of job$ | async">
                     <td>
-                      {{ job.name}}
+                      {{ job.name}} 
                     </td>
                     <td>
                       {{ job.small }}
@@ -60,7 +60,7 @@
                       {{ job.high }}
                     </td>
                     <td>
-                      <button class="btn btn-warning" (click)="open(edit)">
+                      <button class="btn btn-warning" (click)="open(edit, {{ job }})">
                           <i class="fas fa-edit"></i> Edit
                       </button>
                     </td>
