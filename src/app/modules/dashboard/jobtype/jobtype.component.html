@@ -48,7 +48,7 @@
             <tbody>
                 <tr *ngFor="let job of job$ | async">
                     <td>
-                      {{ job.name}} 
+                      {{ job.name}}
                     </td>
                     <td>
                       {{ job.small }}
@@ -60,7 +60,7 @@
                       {{ job.high }}
                     </td>
                     <td>
-                      <button class="btn btn-warning" (click)="open(edit, {{ job }})">
+                      <button class="btn btn-warning" (click)="onEdit(job,content)">
                           <i class="fas fa-edit"></i> Edit
                       </button>
                     </td>
@@ -132,17 +132,35 @@
 
 
 <!--Job Edit Modal-->
-<ng-template #edit let-modal>
+<ng-template #content let-modal>
   <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">Edit Job Type</h4>
+    <h4 class="modal-title" id="edit-modal">Edit Job Type</h4>
     <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
   <div class="modal-body">
-    <p>
-        This is a test
-    </p>
+    <form [formGroup]="editJobForm" (ngSubmit)="updateJobData(editJobForm)" >
+          <div class="form-group">
+            <label for="jobtype">Job Type</label>
+            <input type="text" class="form-control" formControlName="name" />
+          </div>
+          <div class="form-group">
+            <label for="">Small amount</label>
+            <input type="text" class="form-control" formControlName="small" />
+          </div>
+          <div class="form-group">
+            <label for="">Medium amount</label>
+            <input type="text" class="form-control" formControlName="medium" />
+          </div>
+          <div class="form-group">
+            <label for="">Large Amount</label>
+            <input type="text" class="form-control" formControlName="high" />
+          </div>
+          <div class="form-group float-right">
+            <button type="submit" class="btn btn-warning">Edit Job Type</button>
+          </div>
+     </form>
   </div>
 </ng-template>
 
