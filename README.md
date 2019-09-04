@@ -2,11 +2,11 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.0.
 
-# Firebase Backend
+## Firebase Backend
 
 This project uses Firebase as its backend (stored in enviroment.ts)
 
-# Admin credentials
+## Admin credentials
 Email: deve@gmail.com
 Password: 12345678
 
