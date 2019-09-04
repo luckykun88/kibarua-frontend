@@ -10,6 +10,10 @@ This project uses Firebase as its backend (stored in enviroment.ts)
 Email: deve@gmail.com
 Password: 12345678
 
+## Dashboard template
+
+It is based of SB Admin 2 template which has a clean white UI https://startbootstrap.com/themes/sb-admin-2/
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
