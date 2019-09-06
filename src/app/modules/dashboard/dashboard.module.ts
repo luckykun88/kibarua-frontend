@@ -14,9 +14,10 @@ import { ClerkComponent } from './users/clerk/clerk.component';
 import { JobtypeComponent } from './jobtype/jobtype.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MakeTextBoldPipe } from './jobtype/make-text-bold.pipe';
 
 @NgModule({
-  declarations: [DashboardComponent, FooterComponent, NavbarComponent, SidebarComponent, HomeComponent, WorkerComponent, ClientComponent, BrokerComponent, ClerkComponent, JobtypeComponent, PageNotFoundComponent],
+  declarations: [DashboardComponent, FooterComponent, NavbarComponent, SidebarComponent, HomeComponent, WorkerComponent, ClientComponent, BrokerComponent, ClerkComponent, JobtypeComponent, PageNotFoundComponent, MakeTextBoldPipe],
   imports: [
     CommonModule,
     RouterModule,
