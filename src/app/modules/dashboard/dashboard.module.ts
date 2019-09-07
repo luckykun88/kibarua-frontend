@@ -14,15 +14,21 @@ import { ClerkComponent } from './users/clerk/clerk.component';
 import { JobtypeComponent } from './jobtype/jobtype.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ChartsModule } from 'ng2-charts';
+import { MakeTextBoldPipe } from './jobtype/make-text-bold.pipe';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [DashboardComponent, FooterComponent, NavbarComponent, SidebarComponent, HomeComponent, WorkerComponent, ClientComponent, BrokerComponent, ClerkComponent, JobtypeComponent, PageNotFoundComponent],
+  // tslint:disable-next-line: max-line-length
+  declarations: [DashboardComponent, FooterComponent, NavbarComponent, SidebarComponent, HomeComponent, WorkerComponent, ClientComponent, BrokerComponent, ClerkComponent, JobtypeComponent, PageNotFoundComponent, MakeTextBoldPipe],
   imports: [
     CommonModule,
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
-    NgbModule
+    NgbModule,
+    ChartsModule,
+    HttpClientModule
   ]
 })
 export class DashboardModule { }

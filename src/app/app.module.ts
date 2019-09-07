@@ -8,11 +8,13 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './authentication/login/login.component';
 import { RegisterComponent } from './authentication/register/register.component';
 
-import { AngularFireAuthModule } from "@angular/fire/auth";
-import { AngularFireDatabaseModule } from "@angular/fire/database";
-import { AngularFireModule } from "@angular/fire";
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFireModule } from '@angular/fire';
 
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -29,7 +31,8 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
     AngularFireDatabaseModule,
     FormsModule,
     ReactiveFormsModule,
-    DashboardModule
+    DashboardModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
