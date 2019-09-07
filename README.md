@@ -14,6 +14,10 @@ Password: 12345678
 
 It is based of SB Admin 2 template which has a clean white UI https://startbootstrap.com/themes/sb-admin-2/
 
+## Chart library
+
+Used this chart library https://valor-software.com/ng2-charts/#GeneralInfo to render charts on the home dashboard
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
