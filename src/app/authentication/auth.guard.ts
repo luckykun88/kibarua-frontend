@@ -1,30 +1,43 @@
-import { Router } from "@angular/router";
-import { AuthService } from "./auth.service";
-import { Injectable } from "@angular/core";
+import { Router } from '@angular/router';
+import { AuthService } from './auth.service';
+import { Injectable } from '@angular/core';
 import {
   CanActivate,
   CanActivateChild,
-} from "@angular/router";
+} from '@angular/router';
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
 export class AuthGuard implements CanActivate, CanActivateChild {
   constructor(private service: AuthService, private router: Router) {}
 
   canActivate() {
-    if (this.service.isLoggedIn()) {
-      return true;
-    }
-    this.router.navigate(["login"]);
-    return false;
-  }
+    if (this.service.authenticated) { return true; }
+
+    return this.service.currentUserObservable
+         .take(1)
+         .map(user => !!user)
+         .do(loggedIn => {
+           if (!loggedIn) {
+             console.log('access denied');
+             this.router.navigate(['login']);
+           }
+       });
+}
 
   canActivateChild() {
-    if (this.service.isLoggedIn()) {
-      return true;
-    }
-    this.router.navigate(["login"]);
-    return false;
-  }
+    if (this.service.authenticated) { return true; }
+
+    return this.service.currentUserObservable
+         .take(1)
+         .map(user => !!user)
+         .do(loggedIn => {
+           if (!loggedIn) {
+             console.log('access denied');
+             this.router.navigate(['login']);
+           }
+       });
+}
+
 }

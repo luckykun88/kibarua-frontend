@@ -1,6 +1,6 @@
 import { AuthService } from './../auth.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -9,11 +9,8 @@ import { FormControl, FormGroup, Validators } from "@angular/forms";
 })
 export class LoginComponent implements OnInit, OnDestroy {
 
-  constructor(private auth: AuthService) { 
-    document.body.id = "bg-gradient-primary";
-  }
-
-  ngOnInit() {
+  constructor(private auth: AuthService) {
+    document.body.id = 'bg-gradient-primary';
   }
 
   loginForm = new FormGroup({
@@ -21,15 +18,17 @@ export class LoginComponent implements OnInit, OnDestroy {
     password: new FormControl('', Validators.required)
   });
 
-
-  login(frm){
-    console.log(frm.value);
-    this.auth.login(frm.value.email, frm.value.password);
-    this.auth.getUserRole();
+  ngOnInit() {
   }
 
-  ngOnDestroy(){
-    document.body.id = "";
+
+  login(frm) {
+    console.log(frm.value);
+    this.auth.login(frm.value.email, frm.value.password);
+  }
+
+  ngOnDestroy() {
+    document.body.id = '';
   }
 
 }
