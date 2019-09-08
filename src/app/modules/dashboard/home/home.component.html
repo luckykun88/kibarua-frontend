@@ -104,28 +104,49 @@
     </div>
 
     <!-- Content Row -->
-    <div class="row">
 
-            <!-- Area Chart -->
-            <div class="col-xl-8 col-lg-7">
+          <div class="row">
+
+            <!-- Users Chart -->
+            <div class="col-xl-6 col-lg-6">
               <div class="card shadow mb-4">
-
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                  <h6 class="m-0 font-weight-bold text-primary">Users Overview</h6>
+                </div>
                 <!-- Card Body -->
                 <div class="card-body">
-                  <div style="display: block">
+                  <div class="chart-area">
                     <canvas baseChart
-                      [data]="doughnutChartData"
-                      [labels]="doughnutChartLabels"
-                      [chartType]="doughnutChartType"
-                      [colors]="doughnutChartColors">
-                      </canvas>
-                    </div>
+                    [data]="doughnutChartData"
+                    [labels]="doughnutChartLabels"
+                    [chartType]="doughnutChartType"
+                    [colors]="doughnutChartColors"
+                    ></canvas>
+                  </div>
                 </div>
               </div>
             </div>
 
-
+            <!-- Pie Chart -->
+            <div class="col-xl-6 col-lg-6">
+              <div class="card shadow mb-4">
+              <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                  <h6 class="m-0 font-weight-bold text-primary">Wallet Overview</h6>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                  <div class="chart-area">
+                    <canvas baseChart
+                    [data]="doughnutWalletData"
+                    [labels]="doughnutWalletLabels"
+                    [chartType]="doughnutWalletType"
+                    [colors]="doughnutWalletColors"
+                    ></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
 
-  </div>
+        </div>

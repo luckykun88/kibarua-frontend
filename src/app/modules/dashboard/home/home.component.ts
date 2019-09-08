@@ -42,6 +42,15 @@ export class HomeComponent implements OnInit {
     }
   ];
 
+  doughnutWalletLabels: Label[] = ['Admin', 'Users'];
+  doughnutWalletData = [1000, 2000];
+  doughnutWalletType: ChartType = 'doughnut';
+  doughnutWalletColors: Array<any> = [
+    {
+      backgroundColor: ['red', 'blue']
+    }
+  ];
+
   ngOnInit() {
     // code to pull workers from db
     this.workers = this.db
