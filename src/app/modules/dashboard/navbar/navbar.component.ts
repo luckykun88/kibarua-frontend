@@ -17,10 +17,7 @@ export class NavbarComponent implements OnInit {
 
   constructor(private auth: AuthService, private db: AngularFireDatabase, private afAuth: AngularFireAuth) {}
 
-  ngOnInit() {
-    const user = this.afAuth.auth.currentUser;
-    this.username = user.displayName;
-  }
+  ngOnInit() {}
 
 
   logout() {
